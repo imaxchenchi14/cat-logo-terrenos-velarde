@@ -1,0 +1,335 @@
+/* ==========================================================================
+   VARIABLES DE DISEÑO Y PALETA DE COLORES
+   ========================================================================== */
+:root {
+    --bg-dark: #090f0c;       
+    --bg-cards: #111a15;      
+    --accent-emerald: #10b981;
+    --accent-gold: #fbbf24;   
+    --text-pure: #ffffff;
+    --text-muted: #9ca3af;
+    --whatsapp-brand: #25d366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-pure);
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   NAVBAR (Escritorio)
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 8%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-pure);
+}
+
+.logo span {
+    color: var(--accent-emerald);
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--text-pure);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn:hover {
+    background: var(--text-pure);
+    color: var(--bg-dark);
+    border-color: var(--text-pure);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background: linear-gradient(to bottom, rgba(9, 15, 12, 0.5) 0%, rgba(9, 15, 12, 0.95) 100%), 
+                url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    animation: backgroundSlowZoom 25s infinite alternate ease-in-out;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    margin-top: 60px; /* Espacio para que no choque con la navegación */
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--accent-emerald);
+    color: var(--accent-emerald);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 900;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.2s;
+}
+
+.hero-content h1 span {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-pure);
+    background: linear-gradient(135deg, var(--accent-emerald), var(--accent-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.4s;
+}
+
+.btn-main {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--accent-emerald), #059669);
+    color: var(--text-pure);
+    text-decoration: none;
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.6s;
+    overflow: hidden;
+}
+
+.btn-main:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.6);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--text-muted);
+    border-radius: 12px;
+    z-index: 2;
+}
+
+.scroll-down::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 50%;
+    width: 4px; height: 8px;
+    background: var(--accent-emerald);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    animation: scrollMouse 1.5s infinite;
+}
+
+/* ==========================================================================
+   SECCIÓN CARACTERÍSTICAS
+   ========================================================================== */
+.features-section {
+    padding: 100px 8%;
+    background: var(--bg-dark);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.section-title .bar {
+    width: 60px;
+    height: 4px;
+    background: var(--accent-emerald);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.grid-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.feature-card {
+    position: relative;
+    background: var(--bg-cards);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    width: 350px;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.card-glow {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.15), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) rotateX(4deg) rotateY(-2deg);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(16, 185, 129, 0.1);
+}
+
+.feature-card:hover .card-glow { opacity: 1; }
+.icon-box { font-size: 3rem; margin-bottom: 20px; display: inline-block; transition: transform 0.4s ease; }
+.feature-card:hover .icon-box { transform: scale(1.15); }
+.feature-card h3 { font-size: 1.4rem; margin-bottom: 15px; font-weight: 700; }
+.feature-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+
+/* ==========================================================================
+   BOTÓN WHATSAPP FLOTANTE
+   ========================================================================== */
+.whatsapp-floating {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background: var(--whatsapp-brand);
+    color: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    z-index: 100;
+    transition: transform 0.3s ease, background-color 0.3s;
+    animation: pulseRing 2s infinite;
+}
+
+.whatsapp-floating:hover { transform: scale(1.1) rotate(15deg); background-color: #128c7e; }
+
+/* ANIMACIONES KEYFRAMES */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes backgroundSlowZoom { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
+@keyframes scrollMouse { 0% { top: 8px; opacity: 1; height: 8px; } 50% { top: 18px; opacity: 0.4; height: 4px; } 100% { top: 8px; opacity: 1; height: 8px; } }
+@keyframes pulseRing { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+/* ==========================================================================
+   MEDIA QUERIES (CAMBIOS SOLICITADOS PARA CELULARES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* Centramos el título y ponemos el enlace abajo de forma simétrica */
+    .navbar {
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        gap: 15px; /* Espacio exacto entre el título y el botón */
+        padding: 20px 20px;
+    }
+
+    .logo {
+        text-align: center;
+        font-size: 1.8rem; /* Un poco más grande para destacar en celular */
+    }
+
+    .nav-btn {
+        display: inline-flex; /* Asegura que el botón se vea */
+        text-align: center;
+        justify-content: center;
+        width: auto;
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+    
+    /* Ajustes generales de textos del Héroe para encajar con el menú */
+    .hero-content {
+        margin-top: 100px;
+    }
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .btn-main {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+    .features-section {
+        padding: 65px 5%;
+    }
+    .whatsapp-floating {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+}
